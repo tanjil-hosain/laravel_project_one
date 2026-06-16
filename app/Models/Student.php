@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     protected $fillable = ['name', 'gender', 'email','gender', 'district' ];
-    //table name r modell name differtent hole,----->$_COOKIE
-    //protected $table = 'table_namee'
+    //table name r modell name differtent hole,----->
+    //protected $table = 'table_namee'';
 }
