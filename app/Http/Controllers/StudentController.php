@@ -43,10 +43,15 @@ class StudentController extends Controller
         $student->gender = $request->gender;
         $student->phone = $request->phone;
         $student->district = $request->district;
-        $student->subject = $request->subject;
+        
+        $subjects = $request->subjects;
+        $subjects= implode(",", $subjects);
+         $student->subject =$subjects;
+        // dd($subjects);
+
 
         $student->save();
-        return redirect('students');
+        return redirect('students')->with('success', 'Sucessfully Student Created');
         
     }
 

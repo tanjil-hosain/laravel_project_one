@@ -16,19 +16,19 @@
             </div>
 
             <section class="row g-3">
-              @if ($errors->any())
-              <div class="alert alert-danger">
-                <h3>OoOOpsI There are some problems with your input</h3>
-                <ul>
-                  @foreach ($errors->all() as $error )
-                    <li>{{$error}}</li>
-                  @endforeach
-                </ul>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <h3>OoOOpsI There are some problems with your input</h3>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
 
-              </div>
-               @endif
-                
-              
+                    </div>
+                @endif
+
+
                 <div class="col-12 col-xl-12">
                     <form class="panel needs-validation " method="post" action="{{ route('student.store') }}" novalidate>
                         @csrf
@@ -82,20 +82,20 @@
                             </div>
                             <div class="col-md-6 d-block"><label class="form-label" for="team">Subject</label>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        id="sampleCheck" value="php" checked><label class="form-check-label"
+                                        name="subjects[]" value="php"><label class="form-check-label"
                                         for="sampleCheck">PHP</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        id="sampleCheck" value="react" checked><label class="form-check-label"
+                                        name="subjects[]" value="react"><label class="form-check-label"
                                         for="sampleCheck">React</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        name="subject" id="sampleCheck" value="mysql" checked><label
-                                        class="form-check-label" for="sampleCheck">Mysql</label>
+                                        name="subject" name="subjects[]" value="mysql"><label class="form-check-label"
+                                        for="sampleCheck">Mysql</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        id="sampleCheck" checked><label class="form-check-label" for="sampleCheck"
-                                        value="laravel">Laravel</label>
+                                        name="subjects[]" value="laravel"><label class="form-check-label"
+                                        for="sampleCheck" value="laravel">Laravel</label>
                                 </div>
                                 <div class="invalid-feedback">Choose a Subject.</div>
                             </div>

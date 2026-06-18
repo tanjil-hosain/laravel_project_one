@@ -16,6 +16,11 @@
             </div>
 
             <section class="panel">
+                @session('success')
+                <div class="alert alert-success" role="alert">
+                    {{$value}}
+                </div>
+                @endsession
                 <div class="d-flex justify-content-end">
                     <a href="{{ route('student.create') }}" class="btn btn-success ">New Student</a>
                 </div>
