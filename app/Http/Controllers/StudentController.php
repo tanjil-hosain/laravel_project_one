@@ -33,7 +33,8 @@ class StudentController extends Controller
     $request->validate([
         'name'=>'required|min:4|max:25',
         'gender' => 'required',
-        'email' => 'email|required|unique:students,email'
+        'email' => 'email|required|unique:students,email',
+        'phone' => 'min:11'
 
     ]);
         // dd($request);
@@ -43,6 +44,7 @@ class StudentController extends Controller
         $student->gender = $request->gender;
         $student->phone = $request->phone;
         $student->district = $request->district;
+        // subject k array theke string e pathanor jonno implode use korte hobe
         
         $subjects = $request->subjects;
         $subjects= implode(",", $subjects);

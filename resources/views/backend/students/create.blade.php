@@ -42,20 +42,20 @@
                         <div class="row g-3">
                             <div class="col-md-6"><label class="form-label" for="firstName"
                                     name="name">Name</label><input class="form-control" id="firstName" type="text"
-                                    name="name" required>
+                                    name="name" required value="{{ old('name') }}">
                                 <div class="invalid-feedback"> name is required.</div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1"
-                                        value="Male">
+                                    <input class="form-check-input" type="radio" name="gender" 
+                                        value="Male" {{ old('gender') == 'Male' ? 'checked' : '' }}>
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         Male
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2"
-                                        value="Female" checked>
+                                    <input class="form-check-input" type="radio" name="gender" 
+                                        value="Female" {{ old('gender') == 'Female' ? 'checked' : '' }}>
                                     <label class="form-check-label" for="flexRadioDefault2">
                                         Female
                                     </label>
@@ -63,38 +63,40 @@
                                 <div class="invalid-feedback">Gender is required.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="email">Email</label><input
-                                    class="form-control" id="email" type="email" name="email" required>
+                                    class="form-control" id="email" type="email" name="email" required
+                                    value="{{ old('email') }}">
                                 <div class="invalid-feedback">Enter a valid email.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="phone">Phone</label><input
-                                    class="form-control" id="phone" name="phone" type="tel" required>
+                                    class="form-control" id="phone" name="phone" type="tel" required
+                                    value="{{ old('phone') }}">
                                 <div class="invalid-feedback">Phone number is required.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="role">District</label><select
                                     class="form-select" name="district" id="role" required>
                                     <option value="">Choose District</option>
-                                    <option value="1">Dhaka</option>
-                                    <option value="2">Feni</option>
-                                    <option value="3">Chittagong</option>
-                                    <option value="4">Cumilla</option>
+                                    <option value="1" {{old('district')==1?'selected': ''}}>Dhaka</option>
+                                    <option value="2" {{old('district')==2?'selected': ''}}>Feni</option>
+                                    <option value="3" {{old('district')==3?'selected': ''}}>Chittagong</option>
+                                    <option value="4" {{old('district')==4?'selected': ''}}>Cumilla</option>
                                 </select>
                                 <div class="invalid-feedback">Choose a district</div>
                             </div>
                             <div class="col-md-6 d-block"><label class="form-label" for="team">Subject</label>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        name="subjects[]" value="php"><label class="form-check-label"
+                                        name="subjects[]" value="php" {{ old('subjects') == 'php' ? 'checked' : '' }}><label class="form-check-label"
                                         for="sampleCheck">PHP</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        name="subjects[]" value="react"><label class="form-check-label"
+                                        name="subjects[]" value="react"  {{ old('subjects') == 'react' ? 'checked' : '' }}><label class="form-check-label"
                                         for="sampleCheck">React</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        name="subject" name="subjects[]" value="mysql"><label class="form-check-label"
+                                        name="subject" name="subjects[]" value="mysql"  {{ old('subjects[]') == 'mysql' ? 'checked' : '' }}><label class="form-check-label"
                                         for="sampleCheck">Mysql</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        name="subjects[]" value="laravel"><label class="form-check-label"
+                                        name="subjects[]" value="laravel"  {{ old('subjects') == 'laravel' ? 'checked' : '' }}><label class="form-check-label"
                                         for="sampleCheck" value="laravel">Laravel</label>
                                 </div>
                                 <div class="invalid-feedback">Choose a Subject.</div>
