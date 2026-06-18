@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,8 @@ Route::get('students/{id}/edit',[StudentController::class,'edit'])->name('studen
 Route::post('students/{id}/update',[StudentController::class,'update'])->name('student.update');
 Route::get('students/{id}/show',[StudentController::class,'show'])->name('student.show');
 //Disrticts
-Route::get('districts', function(){
-    return view('backend.districts.index');
-});
+Route::get('districts',[DistrictController::class,'index'])->name('district.index');
+
+Route::get('districts/create', [DistrictController::class,'create'])->name('district.create');
+Route::post('districts',[DistrictController::class,'store'])->name('district.store');
+Route::post('districts/{id}', [DistrictController::class,'destroy'])->name('district.destroy');

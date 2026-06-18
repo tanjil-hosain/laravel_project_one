@@ -16,8 +16,16 @@
             </div>
 
             <section class="panel">
+                @session('success')
+                <div class="alert alert-success" role="alert">
+                    {{$value}}
+                    
+                </div>
+
+
+                @endsession
                 <div class="d-flex justify-content-end">
-                    <a href="{{url('district/create')}}" class="btn btn-success ">Add District</a>
+                    <a href="{{route('district.create')}}" class="btn btn-success ">Add District</a>
                 </div>
                 <div class="panel-header">
                     <div>
@@ -37,16 +45,23 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($districts as $district)
+                            
                                 <tr>
-                                    <td class="fw-semibold">1</td>
-                                    <td>Dhaka</td>
+                                    <td class="fw-semibold">{{$district->id}}</td>
+                                    <td>{{$district->name}}</td>
 
                                     <td class="text-center">
-                                        View  
+                                       <form action="{{ route('district.destroy',$district->id)}}" method="post">
+                                        @csrf
+                                        <a href="">View</a>
+                                        <button onclick=" return confirm('Are You delete this district')" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                       </form>
                                     </td>
                                 </tr>
                                 
+                                
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

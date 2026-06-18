@@ -63,11 +63,14 @@
                                     <td>{{ $student->subject }}</td>
 
                                     <td class="text-end">
-                                        <form action="{{route('student.destroy', $student->id)}}" method="post">
+                                        <form action="{{ route('student.destroy', $student->id) }}" method="post">
                                             @csrf
-                                            <a class="btn btn-light btn-sm" href="{{route('student.show', $student->id)}}">View</a>
-                                            <button onclick=" return confirm('Are you Delete this Student??')" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                            <a class=" btn btn-info" href="{{route('student.edit',$student->id)}}">Edit</a>
+                                            <a class="btn btn-light btn-sm"
+                                                href="{{ route('student.show', $student->id) }}">View</a>
+                                            <button onclick=" return confirm('Are you Delete this Student??')"
+                                                class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <a class=" btn btn-info"
+                                                href="{{ route('student.edit', $student->id) }}">Edit</a>
                                         </form>
                                     </td>
                                 </tr>
