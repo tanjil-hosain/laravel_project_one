@@ -23,3 +23,7 @@ Route::post('students/{id}',[StudentController::class,'destroy'])->name('student
 Route::get('students/{id}/edit',[StudentController::class,'edit'])->name('student.edit');
 Route::post('students/{id}/update',[StudentController::class,'update'])->name('student.update');
 Route::get('students/{id}/show',[StudentController::class,'show'])->name('student.show');
+//Disrticts
+Route::get('districts', function(){
+    return view('backend.districts.index');
+});
