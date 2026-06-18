@@ -88,15 +88,15 @@
                                         for="sampleCheck">PHP</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        name="subjects[]" value="react"  {{ old('subjects') == 'react' ? 'checked' : '' }}><label class="form-check-label"
+                                        name="subjects[]" value="react"><label class="form-check-label"
                                         for="sampleCheck">React</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        name="subject" name="subjects[]" value="mysql"  {{ old('subjects[]') == 'mysql' ? 'checked' : '' }}><label class="form-check-label"
+                                         name="subjects[]" value="mysql"><label class="form-check-label"
                                         for="sampleCheck">Mysql</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        name="subjects[]" value="laravel"  {{ old('subjects') == 'laravel' ? 'checked' : '' }}><label class="form-check-label"
+                                        name="subjects[]" value="laravel" ><label class="form-check-label"
                                         for="sampleCheck" value="laravel">Laravel</label>
                                 </div>
                                 <div class="invalid-feedback">Choose a Subject.</div>
