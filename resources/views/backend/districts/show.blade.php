@@ -1,5 +1,6 @@
 @extends('backend.master')
 
+
 @section('content')
     <main class="dashboard-content">
         <div class="container-fluid px-3 px-lg-4 py-4">
@@ -16,16 +17,8 @@
             </div>
 
             <section class="panel">
-                @session('success')
-                <div class="alert alert-success" role="alert">
-                    {{$value}}
-                    
-                </div>
-
-
-                @endsession
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('district.create')}}" class="btn btn-success ">Add District</a>
+                    <a href="{{route('district.index')}}" class="btn btn-success ">Back to Table</a>
                 </div>
                 <div class="panel-header">
                     <div>
@@ -41,28 +34,15 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Action</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($districts as $district)
-                            
-                                <tr>
-                                    <td class="fw-semibold">{{$district->id}}</td>
-                                    <td>{{$district->name}}</td>
-
-                                    <td class="text-center">
-                                       <form action="{{ route('district.destroy',$district->id)}}" method="post">
-                                        @csrf
-                                        <a href="{{route('district.show', $district->id)}}" class="btn btn-success">View</a>
-                                        <button onclick=" return confirm('Are You delete this district')" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                        <a href="{{route('district.edit', $district->id)}}" class="btn btn-info">Edit</a>
-                                       </form>
-                                    </td>
-                                </tr>
-                                
-                                
-                            @endforeach
+                           
+                               <tr>
+                            <td>{{$district->id}}</td>
+                            <td>{{$district->name}}</td>
+                           </tr>
                         </tbody>
                     </table>
                 </div>

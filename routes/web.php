@@ -30,3 +30,7 @@ Route::get('districts',[DistrictController::class,'index'])->name('district.inde
 Route::get('districts/create', [DistrictController::class,'create'])->name('district.create');
 Route::post('districts',[DistrictController::class,'store'])->name('district.store');
 Route::post('districts/{id}', [DistrictController::class,'destroy'])->name('district.destroy');
+Route::get('districts/{id}/edit',[ DistrictController::class,'edit'])->name('district.edit');
+Route::post('districts/{id}/upadate', [DistrictController::class, 'update'])->name('district.update');
+
+Route::get('districts/{id}/show', [DistrictController::class, 'show'])->name('district.show');

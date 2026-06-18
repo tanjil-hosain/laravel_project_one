@@ -49,7 +49,8 @@ class DistrictController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $district = District::find($id);
+        return view('backend.districts.show', compact('district'));
     }
 
     /**
@@ -57,7 +58,8 @@ class DistrictController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $district = District::find($id);
+        return view('backend.districts.edit', compact('district'));
     }
 
     /**
@@ -65,7 +67,17 @@ class DistrictController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name'=>'required|min:3'
+        ]);
+
+         $district = District::find($id);
+
+         $district->name = $request->name;
+
+         $district->update();
+        return redirect('districts')->with('success','Successfully Updated District');
+
     }
 
     /**
