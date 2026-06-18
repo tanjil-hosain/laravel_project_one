@@ -19,3 +19,4 @@ Route::get('students',[StudentController::class,'index'])->name('student.index')
 Route::get('students/create',[StudentController::class,'create'])->name('student.create');
 
 Route::post('students',[StudentController::class,'store'])->name('student.store');
+Route::post('students/{id}',[StudentController::class,'destroy'])->name('student.destroy');

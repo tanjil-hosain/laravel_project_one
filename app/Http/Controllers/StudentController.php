@@ -45,7 +45,7 @@ class StudentController extends Controller
         $student->phone = $request->phone;
         $student->district = $request->district;
         // subject k array theke string e pathanor jonno implode use korte hobe
-        
+
         $subjects = $request->subjects;
         $subjects= implode(",", $subjects);
          $student->subject =$subjects;
@@ -86,6 +86,8 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $student = Student::find($id);
+        $student->delete();
+        return redirect('students')->with ('success', 'Deleted Student');
     }
 }

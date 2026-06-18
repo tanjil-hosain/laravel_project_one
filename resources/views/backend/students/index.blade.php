@@ -17,9 +17,9 @@
 
             <section class="panel">
                 @session('success')
-                <div class="alert alert-success" role="alert">
-                    {{$value}}
-                </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ $value }}
+                    </div>
                 @endsession
                 <div class="d-flex justify-content-end">
                     <a href="{{ route('student.create') }}" class="btn btn-success ">New Student</a>
@@ -61,8 +61,12 @@
                                     <td>{{ $student->email }}</td>
                                     <td>{{ $student->district }}</td>
                                     <td>{{ $student->subject }}</td>
-                                    
+
                                     <td class="text-end"><button class="btn btn-light btn-sm" type="button">View</button>
+                                        <form action="{{route('student.destroy', $student->id)}}" method="post">
+                                            @csrf
+                                            <button onclick=" return confirm('Are you Delete this Student??')" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                                 <tr></tr>
