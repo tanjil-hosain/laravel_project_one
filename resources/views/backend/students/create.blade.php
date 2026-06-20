@@ -30,7 +30,7 @@
 
 
                 <div class="col-12 col-xl-12">
-                    <form class="panel needs-validation " method="post" action="{{ route('student.store') }}" novalidate>
+                    <form class="panel needs-validation " enctype="multipart/form-data" method="post" action="{{ route('student.store') }}" novalidate>
                         @csrf
                         <div class="panel-header">
                             <div>
@@ -47,15 +47,15 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender" 
-                                        value="Male" {{ old('gender') == 'Male' ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="radio" name="gender" value="Male"
+                                        {{ old('gender') == 'Male' ? 'checked' : '' }}>
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         Male
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender" 
-                                        value="Female" {{ old('gender') == 'Female' ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="radio" name="gender" value="Female"
+                                        {{ old('gender') == 'Female' ? 'checked' : '' }}>
                                     <label class="form-check-label" for="flexRadioDefault2">
                                         Female
                                     </label>
@@ -75,16 +75,17 @@
                             <div class="col-md-6"><label class="form-label" for="role">District</label><select
                                     class="form-select" name="district" id="role" required>
                                     <option value="">Choose District</option>
-                                    <option value="1" {{old('district')==1?'selected': ''}}>Dhaka</option>
-                                    <option value="2" {{old('district')==2?'selected': ''}}>Feni</option>
-                                    <option value="3" {{old('district')==3?'selected': ''}}>Chittagong</option>
-                                    <option value="4" {{old('district')==4?'selected': ''}}>Cumilla</option>
+                                    <option value="1" {{ old('district') == 1 ? 'selected' : '' }}>Dhaka</option>
+                                    <option value="2" {{ old('district') == 2 ? 'selected' : '' }}>Feni</option>
+                                    <option value="3" {{ old('district') == 3 ? 'selected' : '' }}>Chittagong</option>
+                                    <option value="4" {{ old('district') == 4 ? 'selected' : '' }}>Cumilla</option>
                                 </select>
                                 <div class="invalid-feedback">Choose a district</div>
                             </div>
                             <div class="col-md-6 d-block"><label class="form-label" for="team">Subject</label>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        name="subjects[]" value="php" {{ old('subjects') == 'php' ? 'checked' : '' }}><label class="form-check-label"
+                                        name="subjects[]" value="php"
+                                        {{ old('subjects') == 'php' ? 'checked' : '' }}><label class="form-check-label"
                                         for="sampleCheck">PHP</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
@@ -92,14 +93,19 @@
                                         for="sampleCheck">React</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                         name="subjects[]" value="mysql"><label class="form-check-label"
+                                        name="subjects[]" value="mysql"><label class="form-check-label"
                                         for="sampleCheck">Mysql</label>
                                 </div>
                                 <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox"
-                                        name="subjects[]" value="laravel" ><label class="form-check-label"
+                                        name="subjects[]" value="laravel"><label class="form-check-label"
                                         for="sampleCheck" value="laravel">Laravel</label>
                                 </div>
                                 <div class="invalid-feedback">Choose a Subject.</div>
+                                <div class="col-md-6"><label class="form-label" for="firstName"
+                                        name="photo">Student Photo</label><input class="form-control" id="photo1"
+                                        type="file" name="photo">
+                                    <div class="invalid-feedback"> img is required.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap justify-content-end gap-2 mt-4"><a class="btn btn-outline-secondary"

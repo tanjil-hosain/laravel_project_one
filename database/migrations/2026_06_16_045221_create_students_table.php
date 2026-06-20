@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email', 50)->unique();
             $table->tinyText('district');
             $table->string('subject', 50)->nullable();
+            $table->string('photo', 100);
             $table->timestamps();
         });
 

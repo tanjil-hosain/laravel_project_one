@@ -53,7 +53,7 @@
                                     <td class="fw-semibold">{{ $student->id }}</td>
                                     <td>
                                         <div class="table-media"><img class="product-thumb"
-                                                src="../assets/images/ecommerce/product-1.jpg"
+                                                src="{{$student->photo}}"
                                                 alt="Wireless Headset"><span>{{ $student->name }}</span></div>
                                     </td>
                                     <td>{{ $student->gender }}</td>

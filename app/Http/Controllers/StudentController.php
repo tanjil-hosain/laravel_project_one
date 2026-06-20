@@ -34,9 +34,17 @@ class StudentController extends Controller
         'name'=>'required|min:4|max:25',
         'gender' => 'required',
         'email' => 'email|required|unique:students,email',
-        'phone' => 'min:11'
+        'phone' => 'min:11',
+        'photo'  => 'required|image|mimes: jpeg,jpg, png|max:2048'
 
     ]);
+    //  dd($request->photo);
+
+    $rand_number = rand(1,20);
+    $ext_lower = strtolower($request->photo->extension());
+    $file_name = $rand_number.time().".". $ext_lower;
+
+    $request->photo->move(public_path('images'),$file_name);
         // dd($request);
         $student = new Student;
         $student->name = $request->name;
@@ -50,6 +58,7 @@ class StudentController extends Controller
         $subjects= implode(",", $subjects);
          $student->subject =$subjects;
         // dd($subjects);
+        $student->photo = 'images/'.$file_name;
 
 
         $student->save();
@@ -85,8 +94,10 @@ class StudentController extends Controller
         'gender' => 'required',
         'email' => 'email|required',
         'phone' => 'min:11'
+        
 
     ]);
+   
          // dd($request);
         $student =  Student::find($id);
         $student->name = $request->name;
